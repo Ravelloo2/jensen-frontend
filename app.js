@@ -1,5 +1,3 @@
-import "friendly-challenge/widget"
-
 document.addEventListener("submit", (event) => {
     console.log("Validating")
     let username = document.getElementById("username").value
@@ -12,9 +10,6 @@ document.addEventListener("submit", (event) => {
 
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
     request.send(`user=${username}&password=${password}`)
-    const headers = new Headers()
-    headers.append("Accept" , "application/json")
-    headers.append("Authorization", btoa(username + ":" + password))
-
+    
     event.preventDefault
 })
