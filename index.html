@@ -5,10 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
+    <script type="module" src="https://unpkg.com/friendly-challenge@0.9.0/widget.module.min.js" async defer></script>
+    <script nomodule src="https://unpkg.com/friendly-challenge@0.9.0/widget.min.js" async defer></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <title>Jensen-Frontend</title>
 </head>
 <body>
     <form>
+        <div class="frc-captcha" data-sitekey="FCMM6NJ3MAQ8OSTS"></div>
+        <div class="g-recaptcha" data-sitekey="6LcZjBoeAAAAAIw_OSA413WEEy1TdO8vBJxlcx1A"></div>
         <label>Username</label>
         <input id="username" name="username" type="text">
         <label>Password</label>

@@ -1,31 +1,20 @@
-var username
-var password
-
+import "friendly-challenge/widget"
 
 document.addEventListener("submit", (event) => {
-    console.log("Submitted")
-    username = document.getElementById("username").value
-    password = document.getElementById("password").value
+    console.log("Validating")
+    let username = document.getElementById("username").value
+    let password = document.getElementById("password").value
 
-    console.log(username)
-    console.log(password)
+    let request = new XMLHttpRequest()
+    request.open("POST", "http://localhost:3000/authorize")
 
+    console.log("Validated")
+
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+    request.send(`user=${username}&password=${password}`)
     const headers = new Headers()
     headers.append("Accept" , "application/json")
     headers.append("Authorization", btoa(username + ":" + password))
-
-    fetch('http://localhost:3000/' , { headers: headers}).then(function (response) {
-        if (response.ok) {
-            document.write("SUCCESFULL LOGIN")
-        }
-        throw response;
-    }).then(function (data) {
-        console.log(data)
-    }).catch(function (error) {
-        console.warn(error)
-    })
-
-
 
     event.preventDefault
 })
