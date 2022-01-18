@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id" content="474086539338-eujo90ve63f82fau6issnuhh0ek3chl7.apps.googleusercontent.com">
     <link rel="stylesheet" href="main.css">
     <script type="module" src="https://unpkg.com/friendly-challenge@0.9.0/widget.module.min.js" async defer></script>
     <script nomodule src="https://unpkg.com/friendly-challenge@0.9.0/widget.min.js" async defer></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <title>Jensen-Frontend</title>
 </head>
 <body>
@@ -19,7 +21,18 @@
         <label>Password</label>
         <input id="password" type="password" name="password">
         <input type="submit">
-        <script src="app.js"></script>
+
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+        <script src="app.js">
+        window.onload = function() {
+            var $recaptcha = document.querySelector('#g-recaptcha-response');
+
+            if($recaptcha) {
+                $recaptcha.setAttribute("required", "required");
+    }
+};
+        </script>
     </form>
     
 </body>
